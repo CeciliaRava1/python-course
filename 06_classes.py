@@ -13,3 +13,6 @@ class Person:
 my_person = Person('Ludmila', 'Gutierrez')
 print(my_person.name)
 my_person.walk()
+
+my_person.name = 'Lucia'
+print(my_person.name)
