@@ -1,3 +1,5 @@
+### file handling ###
+
 '''
 w+: Rewrite
 r+: Read and write
@@ -45,7 +47,7 @@ print(json_dict['name'])
 
 
 # .xlsx
-import xlrd 
+#import xlrd 
 
 # . xml
 import xml

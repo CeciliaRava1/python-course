@@ -1,3 +1,5 @@
+### lambdas ###
+
 sum_two_values = lambda number_one, number_two: number_one + number_two
 print(sum_two_values(2, 4))
 

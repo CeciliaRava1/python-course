@@ -1,3 +1,5 @@
+### error types ###
+
 # SyntaxError
 # print 'Hello'
 

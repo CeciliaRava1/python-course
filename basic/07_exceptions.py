@@ -1,3 +1,5 @@
+### exceptions ###
+
 # # Acceptance Criteria, not exception handling
 # if type(numberTwo) == int:
 #     print(numberOne + numberTwo)
