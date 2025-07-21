@@ -1,9 +1,9 @@
 ### main ###
 
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-app = FastAPI()
+router = APIRouter()
 
 # User entity
 # Basemodel allows to create an entity
@@ -21,29 +21,29 @@ users_list = [User(id=1, name="Brais", surname="Moure", url="https://moure.dev",
 
 
 # Get - - - 
-@app.get('/usersjson')
+@router.get('/usersjson')
 async def usersjson():
     return [{"name":"Brais", "surname":"Moure", "url":"https://moure.dev", "age": 35},
             {"name":"Moure", "surname":"Dev", "url":"https://mouredev.com", "age": 35},
             {"name":"Haakon", "surname":"Dahlberg", "url":"https://Haakon.com", "age": 33}]
 
-@app.get('/users')
+@router.get('/users')
 async def users():
     return users_list
 
 # Path
-@app.get('/user/{id}')
+@router.get('/user/{id}')
 async def user(id: int):
     return search_user(id)
 
 # Query
-@app.get('/user/')
+@router.get('/user/')
 async def user(id: int):
     return search_user(id)
 
 
 # Post - - - 
-@app.post('/user/', response_model=user, status_code=201)
+@router.post('/user/', response_model=user, status_code=201)
 async def user(user: User):
     if type(search_user(user.id)) == User:
         raise HTTPException(status_code=204, detail="user does exists")
@@ -60,7 +60,7 @@ def search_user(id: int):
     
 
 # Put - - - 
-@app.put('/user/')
+@router.put('/user/')
 async def user(user: User):
 
     found = False
@@ -77,7 +77,7 @@ async def user(user: User):
 
 
 # Delete - - - 
-@app.delete('/user/{id}')
+@router.delete('/user/{id}')
 async def user(id: int):
 
     found = False
